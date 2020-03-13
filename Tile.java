@@ -11,7 +11,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Tile extends Sprite {
-	public class yeilds {
+	public class Yeilds {
 		private int food, production, gold, science, faith, tourism, culture, happiness;
 	}
 	
@@ -293,6 +293,14 @@ public class Tile extends Sprite {
 			yPoints[2] = (super.getY() * height) + height - bottomMargin;
 			g.fillPolygon(xPoints, yPoints, 3);
 		}
+        
+        if (feature != null) {
+            g.setColor(new Color(0, 0, 0));
+            try {
+            g.drawString(feature.getFeature(), (super.getX() * width) + 5, (super.getY() * height) + 25);
+            }
+            catch(Exception NullPointerException) {}
+        }
 	}
 	
 	public void printInfo() {
@@ -301,6 +309,12 @@ public class Tile extends Sprite {
         System.out.print(" - Hill: " + hill);
         if (feature != null) {
             System.out.print(" - Feature: " + feature.getFeature());
+        }
+        else {
+            System.out.print(" - Feature: null");
+        }
+        if (resource != null) {
+            System.out.print(" - Feature: " + resource.getResource());
         }
         else {
             System.out.print(" - Feature: null");

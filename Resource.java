@@ -166,4 +166,8 @@ public class Resource {
 		}
 		return resource;
 	}
+    
+    public String getResource() {
+        return resource;
+    }
 }

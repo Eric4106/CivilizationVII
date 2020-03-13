@@ -85,10 +85,11 @@ public class World extends JPanel{
                 sprites[x][y][0] = tile;
             }
         }
+        
         for (int x = 0; x < 24; x++) {
             for (int y = 0; y < 16; y++) {
-	        fixCoasts(x, y);
-	        tiles[x][y].generateHills();
+                fixCoasts(x, y);
+                tiles[x][y].generateHills();
             }
         }
     }
@@ -98,10 +99,10 @@ public class World extends JPanel{
         for (int i = -1; i < 2; i++) {
             if (x + i < 0 || x + i >= 24) continue;
             for (int ii = -1; ii < 2; ii++) {
-        	if (y + ii < 0 || y + ii >= 16) continue;
-	       	if (tiles[x + i][y + ii].getTerain().equals("TERAIN_SNOW") || tiles[x + i][y + ii].getTerain().equals("TERAIN_TUNDRA") || tiles[x + i][y + ii].getTerain().equals("TERAIN_DESERT") || tiles[x + i][y + ii].getTerain().equals("TERAIN_PLAINS") || tiles[x + i][y + ii].getTerain().equals("TERAIN_MOUNTAINS") || tiles[x + i][y + ii].getTerain().equals("TERAIN_GRASS")) {
+                if (y + ii < 0 || y + ii >= 16) continue;
+                if (tiles[x + i][y + ii].getTerain().equals("TERAIN_SNOW") || tiles[x + i][y + ii].getTerain().equals("TERAIN_TUNDRA") || tiles[x + i][y + ii].getTerain().equals("TERAIN_DESERT") || tiles[x + i][y + ii].getTerain().equals("TERAIN_PLAINS") || tiles[x + i][y + ii].getTerain().equals("TERAIN_MOUNTAINS") || tiles[x + i][y + ii].getTerain().equals("TERAIN_GRASS")) {
                     nextTo = true;
-	        }
+                }
             }
         }
         if (tiles[x][y].getTerain().equals("TERAIN_OCEAN") && nextTo) {
